@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 1044316936}
   _text: {fileID: 1680877072}
-  _playerHealth: {fileID: 27752336}
+  _playerHealth: {fileID: 1079663008}
 --- !u!1 &728913436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,8 +2854,10 @@ MonoBehaviour:
   _animator: {fileID: 1794143068}
   _move: {fileID: 1349007867}
   _attack: {fileID: 1349007871}
+  _health: {fileID: 1079663008}
   _isWalkingBoolParam: Walking
   _isAttackingTriggerParam: Attack
+  _isGettingHit: GetHit
 --- !u!1 &1850274031
 GameObject:
   m_ObjectHideFlags: 0
