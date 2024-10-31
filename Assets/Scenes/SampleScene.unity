@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 27752335}
   - component: {fileID: 27752334}
   - component: {fileID: 27752333}
-  - component: {fileID: 27752336}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -228,19 +227,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27752331}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &27752336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27752331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31386448ed24ef4a834e9e8d54ae1ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 0
 --- !u!1 &58043774
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f72b57696a4fd44686ee9ab3191a519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 0
 --- !u!95 &58043778
 Animator:
   serializedVersion: 7
@@ -1088,6 +1075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7499bffe1014f1543b146684ba24ef84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 1667000045}
+  _entity: {fileID: 1349007870}
 --- !u!1001 &599547463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1293,7 +1282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1044316936}
-  _text: {fileID: 0}
+  _text: {fileID: 1680877072}
   _playerHealth: {fileID: 1349007869}
 --- !u!1 &728913436
 GameObject:
@@ -1500,7 +1489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &863578698
 Transform:
   m_ObjectHideFlags: 0
@@ -1549,6 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f72b57696a4fd44686ee9ab3191a519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 10
 --- !u!1 &1044316933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +1997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfec9e5ecc7c75548a28c3249edc0e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gold: 0
 --- !u!114 &1349007871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,7 +2012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attack: {fileID: -3660439506021992032, guid: 7465c15ff2f50e14295da1356a60d5be,
     type: 3}
-  _attackCollider: {fileID: 863578699}
+  _attackZone: {fileID: 863578697}
 --- !u!1001 &1576631183
 PrefabInstance:
   m_ObjectHideFlags: 0

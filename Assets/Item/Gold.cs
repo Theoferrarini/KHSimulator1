@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Gold : Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] int _moneyValue = 10;
 
-    // Update is called once per frame
-    void Update()
+    public override void Use(PickUpItem pui)
     {
-        
+        pui.EntityGold.AddGold(_moneyValue);
+        base.Use(pui);
     }
 }

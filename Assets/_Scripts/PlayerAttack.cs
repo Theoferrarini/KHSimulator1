@@ -1,26 +1,34 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] InputActionReference _attack;
-    [SerializeField] Collider _attackCollider;
+    [SerializeField] GameObject _attackZone;
 
     public event Action OnAttack;
 
-    void Start()
+    private void Start()
     {
-
+        _attack.action.performed += Attacking;
     }
 
-    void Update()
-    {
-
-    }
-
-    private void Attacking()
+    private void Attacking(InputAction.CallbackContext obj)
     {
         OnAttack?.Invoke();
+        StartCoroutine(Attack());
+        IEnumerator Attack()
+        {
+            _attackZone.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            _attackZone.SetActive(false);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _attack.action.performed -= Attacking;
     }
 }

@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
 
 public class GoldUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] TextMeshProUGUI _text;
+    [SerializeField] EntityGold _entity;
+
+    void Awake()
     {
-        
+        _entity.GoldChanged += UpdateText;
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateText(int newGoldValue)
     {
-        
+        _text.text = $"gold : {newGoldValue}";
     }
 }

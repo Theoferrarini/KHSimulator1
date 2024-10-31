@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class HitEntity : MonoBehaviour
 {
-    void Start()
+    [SerializeField] int _damage;
+
+    private void OnTriggerEnter(Collider other)
     {
-
-    }
-
-    void Update()
-    {
-
+        if (other.TryGetComponent(out EntityHealth hit))
+        {
+            hit.TakeDamage(_damage);
+        }
     }
 }

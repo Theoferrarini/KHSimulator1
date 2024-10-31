@@ -48,5 +48,4 @@ public class AnimatorBinding : MonoBehaviour
     {
         _animator.SetTrigger(_isAttackingTriggerParam);
     }
-
 }
