@@ -19,11 +19,17 @@ public class EntityHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        CurrentHealth -= damage;
+        CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, _maxHealth); ;
         HealthChanged?.Invoke(CurrentHealth);
-        //if (CurrentHealth <= 0)
+        //if (CurrentHealth == 0)
         //{
         //    Die();
         //}
+    }
+
+    public void Heal(int heal)
+    {
+        CurrentHealth = Mathf.Clamp(CurrentHealth + heal, 0, _maxHealth); ;
+        HealthChanged?.Invoke(CurrentHealth);
     }
 }
