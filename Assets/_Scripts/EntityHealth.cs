@@ -10,7 +10,9 @@ public class EntityHealth : MonoBehaviour
 
     public int CurrentHealth { get; private set; }
 
-    public event Action<int> HealthChanged;
+    public event Action<int> OnHealthChanged;
+
+    public event Action<int> OnMaxHealthChanged;
 
     public event Action OnGettingHit;
 
@@ -23,7 +25,7 @@ public class EntityHealth : MonoBehaviour
     {
         CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, _maxHealth);
         OnGettingHit?.Invoke();
-        HealthChanged?.Invoke(CurrentHealth);
+        OnHealthChanged?.Invoke(CurrentHealth);
         if (CurrentHealth == 0)
         {
             Destroy(gameObject);
@@ -33,7 +35,13 @@ public class EntityHealth : MonoBehaviour
     public void Heal(int heal)
     {
         CurrentHealth = Mathf.Clamp(CurrentHealth + heal, 0, _maxHealth);
-        HealthChanged?.Invoke(CurrentHealth);
+        OnHealthChanged?.Invoke(CurrentHealth);
+    }
+
+    public void PowerUp(int powerUpValue)
+    {
+        _maxHealth += powerUpValue;
+        OnMaxHealthChanged?.Invoke(_maxHealth);
     }
 
 
