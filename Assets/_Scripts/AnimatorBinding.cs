@@ -1,6 +1,4 @@
 using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimatorBinding : MonoBehaviour
@@ -10,19 +8,28 @@ public class AnimatorBinding : MonoBehaviour
 
     [SerializeField, Required] PlayerMove _move;
 
+    [SerializeField, Required] PlayerAttack _attack;
+
+
     [AnimatorParam(nameof(_animator), AnimatorControllerParameterType.Bool)]
     [SerializeField] string _isWalkingBoolParam;
+
+    [AnimatorParam(nameof(_animator), AnimatorControllerParameterType.Trigger)]
+    [SerializeField] string _isAttackingTriggerParam;
 
     private void Reset()
     {
         _animator = GetComponent<Animator>();
         _move = GetComponentInParent<PlayerMove>();
         _isWalkingBoolParam = "Walking";
+        _attack = GetComponentInParent<PlayerAttack>();
+        _isWalkingBoolParam = "Attack";
     }
 
 
     private void Start()
     {
+        _attack.OnAttack += _attack_OnAttack;
         _move.OnStartMove += _move_OnStartMove;
         _move.OnStopMove += _move_OnStopMove;
     }
@@ -35,6 +42,11 @@ public class AnimatorBinding : MonoBehaviour
     private void _move_OnStopMove()
     {
         _animator.SetBool(_isWalkingBoolParam, false);
+    }
+
+    private void _attack_OnAttack()
+    {
+        _animator.SetTrigger(_isAttackingTriggerParam);
     }
 
 }
